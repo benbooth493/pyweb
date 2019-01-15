@@ -16,7 +16,7 @@ def main():
         "Build Container", "building pyweb image", build_container)
 
     run = sdk.Job(
-        "Build Container", "building pyweb image", run_container)
+        "Run Container", "running pyweb image", run_container)
 
     sdk.serve([
         build,
