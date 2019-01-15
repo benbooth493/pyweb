@@ -2,11 +2,23 @@ from gaiasdk import sdk
 import logging
 
 
-def MyAwesomeJob(args):
-    logging.info("MyAwesomeJob is running")
+def build_container(args):
+    logging.info("building container..")
+
+
+def run_container(args):
+    logging.info("run container..")
 
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    myjob = sdk.Job("MyAwesomeJob", "Do something awesome", MyAwesomeJob)
-    sdk.serve([myjob])
+    build = sdk.Job(
+        "Build Container", "building pyweb image", build_container)
+
+    run = sdk.Job(
+        "Build Container", "building pyweb image", run_container)
+
+    sdk.serve([
+        build,
+        run,
+    ])
